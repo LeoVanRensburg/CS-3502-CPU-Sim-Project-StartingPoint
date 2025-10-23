@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Linq;
+using static CpuScheduler.CpuSchedulerForm;
 
 namespace CpuScheduler
 {
@@ -422,6 +425,141 @@ namespace CpuScheduler
 
         // TODO: Add new scheduling algorithms below. Use the above methods as
         // examples when expanding functionality.
+        // Methods were added in CpuSchedulerForm.cs to conform with where other algorithms are
+        // accessed from the UI. This increases the codes simplicity.
+        //
+        // GPT-5 was used to confirm that the Algorithms in the UI were being displayed from CpuSchedulerForm.cs
+        //
+        // Below is a copy of that code 
+
+        // /// <summary>
+        // /// SRTF algorithm implementation using DataGrid data
+        // /// Process with shortest remaining time first runs after each unit of time
+        // /// </summary>
+        //private List<SchedulingResult> RunSRTFAlgorithm(List<ProcessData> processes)
+        //{
+        //    var results = new List<SchedulingResult>();
+        //    var currentTime = 0;
+        //    var completed = 0;
+        //    var n = processes.Count;
+
+        //    // Track remaining time and completion status
+        //    var remainingTime = processes.ToDictionary(p => p.ProcessID, p => p.BurstTime);
+        //    var startTime = processes.ToDictionary(p => p.ProcessID, p => -1);
+        //    var completionTime = processes.ToDictionary(p => p.ProcessID, p => 0);
+        //    var isCompleted = processes.ToDictionary(p => p.ProcessID, p => false);
+
+        //    while (completed != n)
+        //    {
+        //        // Find process with shortest remaining time that has arrived
+        //        var availableProcesses = processes
+        //            .Where(p => p.ArrivalTime <= currentTime && !isCompleted[p.ProcessID])
+        //            .ToList();
+
+        //        if (availableProcesses.Count == 0)
+        //        {
+        //            currentTime++;
+        //            continue;
+        //        }
+
+        //        var shortestProcess = availableProcesses
+        //            .OrderBy(p => remainingTime[p.ProcessID])
+        //            .ThenBy(p => p.ArrivalTime)
+        //            .First();
+
+        //        // Record start time on first execution
+        //        if (startTime[shortestProcess.ProcessID] == -1)
+        //        {
+        //            startTime[shortestProcess.ProcessID] = currentTime;
+        //        }
+
+        //        // Execute for 1 time unit
+        //        remainingTime[shortestProcess.ProcessID]--;
+        //        currentTime++;
+
+        //        // Check if process completed
+        //        if (remainingTime[shortestProcess.ProcessID] == 0)
+        //        {
+        //            completed++;
+        //            isCompleted[shortestProcess.ProcessID] = true;
+        //            completionTime[shortestProcess.ProcessID] = currentTime;
+
+        //            var turnaroundTime = completionTime[shortestProcess.ProcessID] - shortestProcess.ArrivalTime;
+        //            var waitingTime = turnaroundTime - shortestProcess.BurstTime;
+
+        //            results.Add(new SchedulingResult
+        //            {
+        //                ProcessID = shortestProcess.ProcessID,
+        //                ArrivalTime = shortestProcess.ArrivalTime,
+        //                BurstTime = shortestProcess.BurstTime,
+        //                StartTime = startTime[shortestProcess.ProcessID],
+        //                FinishTime = completionTime[shortestProcess.ProcessID],
+        //                WaitingTime = waitingTime,
+        //                TurnaroundTime = turnaroundTime
+        //            });
+        //        }
+        //    }
+
+        //    return results.OrderBy(r => r.FinishTime).ToList();
+        //}
+
+        ///// <summary>
+        ///// HRRN algorithm implementation using DataGrid data
+        ///// Calculates response ratio for each process, and runs process with the highest response ratio
+        ///// </summary>
+        //private List<SchedulingResult> RunHRRNAlgorithm(List<ProcessData> processes)
+        //{
+        //    var results = new List<SchedulingResult>();
+        //    var currentTime = 0;
+        //    var completed = 0;
+        //    var n = processes.Count;
+        //    var isCompleted = processes.ToDictionary(p => p.ProcessID, p => false);
+
+        //    while (completed != n)
+        //    {
+        //        // Find all processes that have arrived
+        //        var availableProcesses = processes
+        //            .Where(p => p.ArrivalTime <= currentTime && !isCompleted[p.ProcessID])
+        //            .ToList();
+
+        //        if (availableProcesses.Count == 0)
+        //        {
+        //            currentTime++;
+        //            continue;
+        //        }
+
+        //        // Calculate response ratio for each available process
+        //        var processWithRatio = availableProcesses.Select(p => new
+        //        {
+        //            Process = p,
+        //            ResponseRatio = ((currentTime - p.ArrivalTime) + (double)p.BurstTime) / p.BurstTime
+        //        }).OrderByDescending(pr => pr.ResponseRatio)
+        //          .ThenBy(pr => pr.Process.ArrivalTime)
+        //          .First();
+
+        //        var selectedProcess = processWithRatio.Process;
+        //        var startTime = currentTime;
+        //        var finishTime = startTime + selectedProcess.BurstTime;
+        //        var turnaroundTime = finishTime - selectedProcess.ArrivalTime;
+        //        var waitingTime = turnaroundTime - selectedProcess.BurstTime;
+
+        //        results.Add(new SchedulingResult
+        //        {
+        //            ProcessID = selectedProcess.ProcessID,
+        //            ArrivalTime = selectedProcess.ArrivalTime,
+        //            BurstTime = selectedProcess.BurstTime,
+        //            StartTime = startTime,
+        //            FinishTime = finishTime,
+        //            WaitingTime = waitingTime,
+        //            TurnaroundTime = turnaroundTime
+        //        });
+
+        //        currentTime = finishTime;
+        //        isCompleted[selectedProcess.ProcessID] = true;
+        //        completed++;
+        //    }
+
+        //    return results.OrderBy(r => r.StartTime).ToList();
+        //}
     }
 }
-
