@@ -15,7 +15,7 @@ The simulator is functional but still a work in progress. Currently the followin
 | Priority Scheduling | `CpuSchedulerForm.RunPriorityAlgorithm` | User supplies a priority value for each job. |
 | Round Robin | `CpuSchedulerForm.RunRoundRobinAlgorithm` | Requires a quantum time parameter. |
 | Shortest Remaining Time First | `CpuSchedulerForm.RunSRTFAlgorithm` | Processes with shortest remaining time are executed first. |
-| Highest Response Ratio Next | `CpuSchedulerForm.RunHRRNAlgorithm` | Processes with highest response ratio are calculated next. |
+| Highest Response Ratio Next | `CpuSchedulerForm.RunHRRNAlgorithm` | Processes with highest response ratio are completed next. |
 
 Additional algorithms can easily be added by extending `CpuSchedulerForm.cs`.
 
