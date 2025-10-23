@@ -468,6 +468,7 @@ Instructions:
         /// <summary>
         /// SRTF algorithm implementation using DataGrid data
         /// Process with shortest remaining time first runs after each unit of time
+        /// GPT-5 was used to help debug as I am not used to coding in C#. The logic and implementation were manually thought out, as was most of the coding.
         /// </summary>
         private List<SchedulingResult> RunSRTFAlgorithm(List<ProcessData> processes)
         {
@@ -539,6 +540,7 @@ Instructions:
         /// <summary>
         /// HRRN algorithm implementation using DataGrid data
         /// Calculates response ratio for each process, and runs process with the highest response ratio
+        /// GPT-5 was used to help debug as I am not used to coding in C#. The logic and implementation were manually thought out, as was most of the coding.
         /// </summary>
         private List<SchedulingResult> RunHRRNAlgorithm(List<ProcessData> processes)
         {
