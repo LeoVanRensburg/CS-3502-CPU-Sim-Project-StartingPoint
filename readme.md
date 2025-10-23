@@ -2,7 +2,7 @@
 
 This project provides a Windows Forms application that demonstrates common CPU scheduling algorithms through an interactive graphical interface. Each algorithm prompts for basic input and displays the resulting waiting or turnaround times using message boxes and on-screen tables.
 
-**Fork maintained by Chris Regan** - Original creator: Francis (used with permission)
+**Fork maintained by Leo van Rensburg** - Original creator: Francis (used with permission)
 
 ## Project status
 
@@ -10,12 +10,14 @@ The simulator is functional but still a work in progress. Currently the followin
 
 | Algorithm | Method | Notes |
 |-----------|--------|-------|
-| First Come First Serve | `Algorithms.RunFirstComeFirstServe` | Processes are executed in order of arrival. |
-| Shortest Job First | `Algorithms.RunShortestJobFirst` | Jobs are sorted by burst time before execution. |
-| Priority Scheduling | `Algorithms.RunPriorityScheduling` | User supplies a priority value for each job. |
-| Round Robin | `Algorithms.RunRoundRobin` | Requires a quantum time parameter. |
+| First Come First Serve | `CpuSchedulerForm.RunFCFSAlgorithm` | Processes are executed in order of arrival. |
+| Shortest Job First | `CpuSchedulerForm.RunSJFAlgorithm` | Jobs are sorted by burst time before execution. |
+| Priority Scheduling | `CpuSchedulerForm.RunPriorityAlgorithm` | User supplies a priority value for each job. |
+| Round Robin | `CpuSchedulerForm.RunRoundRobinAlgorithm` | Requires a quantum time parameter. |
+| Shortest Remaining Time First | `CpuSchedulerForm.RunFirstComeFirstServe` | Processes with shortest remaining time are executed first. |
+| Highest Response Ratio Next | `CpuSchedulerForm.RunFirstComeFirstServe` | Processes with highest response ratio are calculated next. |
 
-Additional algorithms can easily be added by extending `Algorithms.cs`.
+Additional algorithms can easily be added by extending `CpuSchedulerForm.cs`.
 
 ## Requirements
 
@@ -30,7 +32,7 @@ Additional algorithms can easily be added by extending `Algorithms.cs`.
 1. Clone the repository:
 
    ```bash
-   git clone git@github.com:iAmGiG/CS-3502-CPU-Sim-Project-StartingPoint.git
+   git clone git@github.com:LeoVanRensburg/CS-3502-CPU-Sim-Project-StartingPoint.git
    ```
 
 2. Open `CpuScheduler.sln` in Visual Studio 2022
@@ -41,7 +43,7 @@ Additional algorithms can easily be added by extending `Algorithms.cs`.
 1. Clone the repository:
 
    ```bash
-   git clone git@github.com:iAmGiG/CS-3502-CPU-Sim-Project-StartingPoint.git
+   git clone git@github.com:LeoVanRensburg/CS-3502-CPU-Sim-Project-StartingPoint.git
    ```
 
 2. Install the C# Dev Kit extension in VS Code
